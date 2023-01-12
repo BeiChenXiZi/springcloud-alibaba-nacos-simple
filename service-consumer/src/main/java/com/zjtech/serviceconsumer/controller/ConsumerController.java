@@ -1,43 +1,23 @@
 package com.zjtech.serviceconsumer.controller;
 
-import com.zjtech.serviceconsumer.feign.ProviderClient;
-import com.zjtech.serviceconsumer.vo.User;
+import com.zjtech.serviceconsumer.feign.TTeacherApi;
+import com.zjtech.serviceconsumer.vo.TTeacher;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
 
 @RestController
 @RefreshScope //Nacos实时动态刷新配置
 public class ConsumerController {
 
-    @Autowired
-    ProviderClient providerClient;
+    @Resource
+    TTeacherApi teacherApi;
 
-    @RequestMapping("/get/user")
-    @ResponseBody
-    public User getUserInfo(@RequestParam int uid){
-        return providerClient.getUserInfo(uid);
+    @RequestMapping("consumer/get/user")
+    public TTeacher selectOne(Integer id){
+        return teacherApi.selectOne(id);
     }
 
-    @Value("${person.name}")
-    private String commonName;
-
-    @Value("${person.age}")
-    private String age;
-
-    @Value("${person.address}")
-    private String address;
-
-    @Value("${r.nac}")
-    private String cnac;
-
-    @Value("${r.ver}")
-    private String ver;
-
-    @GetMapping("/config")
-    public String getValue(){
-        return "小田野个人信息：" +  commonName + "\r" + age + "\r" + address + "\r" + cnac + "\r" + ver;
-//        return "小田野个人信息：" +  commonName + "\r" + age + "\r" + address;
-    }
 }
