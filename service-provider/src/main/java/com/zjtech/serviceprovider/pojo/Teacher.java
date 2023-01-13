@@ -10,7 +10,7 @@ import lombok.Data;
  
 
 @Data
-public class TTeacher {
+public class Teacher {
     /**
     * 主键
     */

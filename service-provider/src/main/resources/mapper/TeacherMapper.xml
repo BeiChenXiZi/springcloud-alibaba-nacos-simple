@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zjtech.serviceprovider.dao.TTeacherMapper">
-  <resultMap id="BaseResultMap" type="com.zjtech.serviceprovider.pojo.TTeacher">
+<mapper namespace="com.zjtech.serviceprovider.dao.TeacherMapper">
+  <resultMap id="BaseResultMap" type="com.zjtech.serviceprovider.pojo.Teacher">
     <!--@mbg.generated-->
-    <!--@Table t_teacher-->
+    <!--@Table teacher-->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="nickName" jdbcType="VARCHAR" property="nickname" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
@@ -18,24 +18,24 @@
     <!--@mbg.generated-->
     select 
     <include refid="Base_Column_List" />
-    from t_teacher
+    from teacher
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--@mbg.generated-->
-    delete from t_teacher
+    delete from teacher
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.zjtech.serviceprovider.pojo.TTeacher" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.zjtech.serviceprovider.pojo.Teacher" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into t_teacher (nickName, remark, imageName, 
+    insert into teacher (nickName, remark, imageName, 
       user_id)
     values (#{nickname,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{imagename,jdbcType=VARCHAR}, 
       #{userId,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.zjtech.serviceprovider.pojo.TTeacher" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.zjtech.serviceprovider.pojo.Teacher" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into t_teacher
+    insert into teacher
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="nickname != null and nickname != ''">
         nickName,
@@ -65,9 +65,9 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zjtech.serviceprovider.pojo.TTeacher">
+  <update id="updateByPrimaryKeySelective" parameterType="com.zjtech.serviceprovider.pojo.Teacher">
     <!--@mbg.generated-->
-    update t_teacher
+    update teacher
     <set>
       <if test="nickname != null and nickname != ''">
         nickName = #{nickname,jdbcType=VARCHAR},
@@ -84,9 +84,9 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zjtech.serviceprovider.pojo.TTeacher">
+  <update id="updateByPrimaryKey" parameterType="com.zjtech.serviceprovider.pojo.Teacher">
     <!--@mbg.generated-->
-    update t_teacher
+    update teacher
     set nickName = #{nickname,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR},
       imageName = #{imagename,jdbcType=VARCHAR},

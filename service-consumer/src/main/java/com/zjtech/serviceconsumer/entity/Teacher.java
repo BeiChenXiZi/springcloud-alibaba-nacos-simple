@@ -1,4 +1,4 @@
-package com.zjtech.serviceconsumer.vo;
+package com.zjtech.serviceconsumer.entity;
 
 import lombok.Data;
 
@@ -10,7 +10,7 @@ import lombok.Data;
  
 
 @Data
-public class TTeacher {
+public class Teacher {
     /**
     * 主键
     */

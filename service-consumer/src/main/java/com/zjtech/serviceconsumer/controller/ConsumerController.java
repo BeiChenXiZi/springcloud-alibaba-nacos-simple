@@ -1,8 +1,7 @@
 package com.zjtech.serviceconsumer.controller;
 
-import com.zjtech.serviceconsumer.feign.TTeacherApi;
-import com.zjtech.serviceconsumer.vo.TTeacher;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.zjtech.serviceconsumer.entity.Teacher;
+import com.zjtech.serviceconsumer.feign.FeignTeacherApi;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,10 +12,10 @@ import javax.annotation.Resource;
 public class ConsumerController {
 
     @Resource
-    TTeacherApi teacherApi;
+    FeignTeacherApi teacherApi;
 
     @RequestMapping("consumer/get/user")
-    public TTeacher selectOne(Integer id){
+    public Teacher selectOne(Integer id){
         return teacherApi.selectOne(id);
     }
 

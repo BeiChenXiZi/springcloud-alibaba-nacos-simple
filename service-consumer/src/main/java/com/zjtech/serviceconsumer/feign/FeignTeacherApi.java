@@ -1,6 +1,7 @@
 package com.zjtech.serviceconsumer.feign;
 
-import com.zjtech.serviceconsumer.vo.TTeacher;
+
+import com.zjtech.serviceconsumer.entity.Teacher;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 
 @FeignClient(value = "service-provider")
-public interface TTeacherApi {
+public interface FeignTeacherApi {
 
     @GetMapping("/t_teacher/selectOne")
-    TTeacher selectOne(@RequestParam("id") Integer id);
+    Teacher selectOne(@RequestParam("id") Integer id);
 
 }
